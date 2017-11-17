@@ -66,7 +66,7 @@ aggregateStarsOfQualifyingBusinesses(Reviews const& r,
 	// This function needs to find all reviews that have business_ids in
 	// the qualifyingBusinessesIDs vector and build a histogram over their stars
 	// The return value is that histogram
-	std::vector<unsigned long> stars[6];
-	stars.push_back([1,2,3,4,5,6]);
-	return stars;
+	std::vector<unsigned long> result(6);
+	//stars.push_back([1,2,3,4,5,6]);
+	return result;
 }
