@@ -33,14 +33,14 @@ performNestedLoopJoinAndAggregation(Reviews const& r, std::vector<std::string> c
 
 	for ( int i = 0; i < r.business_ids.size() ; i ++) {
 		int rating = r.stars[i];
-		
+
 		for ( auto b_id : qualifyingBusinessesIDs) {
 			if (r.business_ids[i] == b_id)
 				result[rating]++;
 		}
 	}
 
-	return stars;
+	return result;
 }
 
 //////////////////// Hash Join ////////////////////
