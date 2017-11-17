@@ -45,7 +45,7 @@ performNestedLoopJoinAndAggregation(Reviews const& r, std::vector<std::string> c
 
 //////////////////// Hash Join ////////////////////
 
-std::unordered_set<std::string> getQualifyingBusinessesIDs(Businesses const& b, float latMin,
+/*std::unordered_set<std::string> getQualifyingBusinessesIDs(Businesses const& b, float latMin,
 																													 float latMax, float longMin,
 																													 float longMax) {
 	// This function needs to find all businesses that have within the
@@ -69,4 +69,4 @@ aggregateStarsOfQualifyingBusinesses(Reviews const& r,
 	std::vector<unsigned long> result;
 	result.push_back(1);
 	return result;
-}
+}*/
