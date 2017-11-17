@@ -9,12 +9,12 @@ std::vector<std::string> getQualifyingBusinessesIDsVector(Businesses const& b, f
 																													float longMax) {
 	// This function needs to find all businesses that have within the
 	// specified latitude/longitude range and store their ids in the result vector
-	std::vector<std:string> result;
+	std::vector<std::string> result;
 
 	// search vector for a specific element
 	int lookingFor = 1;
 	for ( size_t i = 0; i < b->ids.size(); i ++) {
-		if (b->latitudes[i] > latMin && b->latitudes[i] < latMax && b->longitudes[i] > longMin && b->longitudes[i] < longMax){
+		if (b.latitudes[i] > latMin && b.latitudes[i] < latMax && b.longitudes[i] > longMin && b.longitudes[i] < longMax){
 			result.push_back(b->ids[i]);
 		}
 	}
