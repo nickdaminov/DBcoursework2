@@ -51,7 +51,7 @@ std::unordered_set<std::string> getQualifyingBusinessesIDs(Businesses const& b, 
 	// This function needs to find all businesses that have within the
 	// specified latitude/longitude range and store their ids in the result set
 	std::vector<std::string> result;
-	result.push_back("asd");
+	result.push_back(1);
 	//std::cout << "function getQualifyingBusinessesIDs not implemented" << std::endl;
 	//throw std::logic_error("unimplemented");
 	return result;
