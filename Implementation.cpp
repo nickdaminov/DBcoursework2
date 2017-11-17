@@ -9,8 +9,18 @@ std::vector<std::string> getQualifyingBusinessesIDsVector(Businesses const& b, f
 																													float longMax) {
 	// This function needs to find all businesses that have within the
 	// specified latitude/longitude range and store their ids in the result vector
-	std::cout << "function getQualifyingBusinessesIDsVector not implemented" << std::endl;
-	throw std::logic_error("unimplemented");
+	std::vector<std:string> result;
+
+	// search vector for a specific element
+	int lookingFor = 1;
+	for ( size_t i = 0; i < b->ids.size(); i ++) {
+		if (b->latitudes[i] > latMin && b->latitudes[i] < latMax && b->longitudes[i] > longMin && b->longitudes[i] < longMax){
+			result.push_back(b->ids[i]);
+		}
+	}
+	//std::cout << "function getQualifyingBusinessesIDsVector not implemented" << std::endl;
+	//throw std::logic_error("unimplemented");
+	return result;
 }
 
 std::vector<unsigned long>
@@ -21,6 +31,14 @@ performNestedLoopJoinAndAggregation(Reviews const& r, std::vector<std::string> c
 	// This function needs to find all reviews that have business_ids in
 	// the qualifyingBusinessesIDs vector and build a histogram over their stars
 	// The return value is that histogram
+	for ( size_t i = 0; i < leftRelationSize ; i ++) {
+		auto leftInput = readTupleFromPage (" left " , i) ;
+		for ( size_t j = 0; j < rightRelationSize ; j ++) {
+			auto rightInput = readTupleFromPage (" right " , j);
+			if ( leftInput [ leftAttribute ] == rightInput [ rightAttribute ])
+			writeToOutput ({ leftInput , rightInput }) ;
+		}
+	}
 
 	std::cout << "function performNestedLoopJoinAndAggregation not implemented" << std::endl;
 	throw std::logic_error("unimplemented");
