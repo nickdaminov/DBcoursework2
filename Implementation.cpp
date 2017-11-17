@@ -11,15 +11,13 @@ std::vector<std::string> getQualifyingBusinessesIDsVector(Businesses const& b, f
 	// specified latitude/longitude range and store their ids in the result vector
 	std::vector<std::string> result;
 
-	// search vector for a specific element
 	int lookingFor = 1;
-	for ( size_t i = 0; i < b.ids.size(); i ++) {
-		if (b.latitudes[i] > latMin && b.latitudes[i] < latMax && b.longitudes[i] > longMin && b.longitudes[i] < longMax){
+	for ( int i = 0; i < b.ids.size(); i ++) {
+		if (b.latitudes[i] >= latMin && b.latitudes[i] <= latMax && b.longitudes[i] >= longMin && b.longitudes[i] <= longMax){
 			result.push_back(b.ids[i]);
 		}
 	}
-	//std::cout << "function getQualifyingBusinessesIDsVector not implemented" << std::endl;
-	//throw std::logic_error("unimplemented");
+
 	return result;
 }
 
@@ -31,17 +29,18 @@ performNestedLoopJoinAndAggregation(Reviews const& r, std::vector<std::string> c
 	// This function needs to find all reviews that have business_ids in
 	// the qualifyingBusinessesIDs vector and build a histogram over their stars
 	// The return value is that histogram
-	/*for ( size_t i = 0; i < leftRelationSize ; i ++) {
-		auto leftInput = readTupleFromPage (" left " , i) ;
-		for ( size_t j = 0; j < rightRelationSize ; j ++) {
-			auto rightInput = readTupleFromPage (" right " , j);
-			if ( leftInput [ leftAttribute ] == rightInput [ rightAttribute ])
-			writeToOutput ({ leftInput , rightInput }) ;
-		}
-	}*/
+	std::vector<unsigned long> result(6);
 
-	std::cout << "function performNestedLoopJoinAndAggregation not implemented" << std::endl;
-	throw std::logic_error("unimplemented");
+	for ( int i = 0; i < r.business_ids.size() ; i ++) {
+		int rating = r.stars[i];
+		
+		for ( auto b_id : qualifyingBusinessesIDs) {
+			if (r.business_ids[i] == b_id)
+				result[rating]++;
+		}
+	}
+
+	return stars;
 }
 
 //////////////////// Hash Join ////////////////////
@@ -51,8 +50,10 @@ std::unordered_set<std::string> getQualifyingBusinessesIDs(Businesses const& b, 
 																													 float longMax) {
 	// This function needs to find all businesses that have within the
 	// specified latitude/longitude range and store their ids in the result set
-	std::cout << "function getQualifyingBusinessesIDs not implemented" << std::endl;
-	throw std::logic_error("unimplemented");
+	std::vector<std::string> result;
+	//std::cout << "function getQualifyingBusinessesIDs not implemented" << std::endl;
+	//throw std::logic_error("unimplemented");
+	return result;
 }
 
 std::vector<unsigned long>
@@ -64,6 +65,7 @@ aggregateStarsOfQualifyingBusinesses(Reviews const& r,
 	// This function needs to find all reviews that have business_ids in
 	// the qualifyingBusinessesIDs vector and build a histogram over their stars
 	// The return value is that histogram
-	std::cout << "function aggregateStarsOfQualifyingBusinesses not implemented" << std::endl;
-	throw std::logic_error("unimplemented");
+	std::vector<unsigned long> stars[6];
+
+	return stars;
 }
