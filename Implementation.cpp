@@ -13,7 +13,7 @@ std::vector<std::string> getQualifyingBusinessesIDsVector(Businesses const& b, f
 
 	// search vector for a specific element
 	int lookingFor = 1;
-	for ( size_t i = 0; i < b->ids.size(); i ++) {
+	for ( size_t i = 0; i < b.ids.size(); i ++) {
 		if (b.latitudes[i] > latMin && b.latitudes[i] < latMax && b.longitudes[i] > longMin && b.longitudes[i] < longMax){
 			result.push_back(b.ids[i]);
 		}
